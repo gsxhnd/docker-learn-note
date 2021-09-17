@@ -59,4 +59,3 @@ Docker 提供了一个很简单的机制来创建镜像或者更新现有的镜�
 仓库是集中存放镜像文件的场所。仓库分为公开仓库（Public）和私有仓库（Private） 两种形式。
 
 最大的公开仓库是 [Docker Hub](https://hub.docker.com/)，存放了数量庞大的镜像供用户下载。 [中国官方镜像加速](https://www.docker-cn.com/registry-mirror)
-
