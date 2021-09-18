@@ -26,7 +26,7 @@ Docker 相比传统虚拟机有诸多优势。
 
 docker 引擎是一个 c/s 结构的应用，主要组件见下图：
 
-![1-1](<https://cubox.pro/c/filters:no_upscale()?imageUrl=https%3A%2F%2Fcubox.pro%2Fc%2Ffilters%3Ano_upscale%28%29%3FimageUrl%3Dhttp%3A%2F%2Fhainiubl.com%2Fimages%2F2016%2Fengine-components-flow.png>)
+![1-1](../img/01/1-1.png)
 
 - Server 是一个常驻进程
 - REST API 实现了 client 和 server 间的交互协议
@@ -38,7 +38,7 @@ docker 引擎是一个 c/s 结构的应用，主要组件见下图：
 
 Docker 使用 C/S 架构，Client 通过接口与 Server 进程通信实现容器的构建，运行和发布。client 和 server 可以运行在同一台集群，也可以通过跨主机实现远程通信。
 
-![1-2](<https://cubox.pro/c/filters:no_upscale()?imageUrl=https%3A%2F%2Fcubox.pro%2Fc%2Ffilters%3Ano_upscale%28%29%3FimageUrl%3Dhttp%3A%2F%2Fhainiubl.com%2Fimages%2F2016%2Farchitecture.jpg>)
+![1-2](../img/01/1-2.svg)
 
 ## Docker 基本概念
 
