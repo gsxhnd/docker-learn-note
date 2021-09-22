@@ -21,16 +21,16 @@ nginx latest 6f8d099c3adc 12 days ago 182.7 MB
 mysql 5.6 f2e8d6c772c0 3 weeks ago 324.6 MB
 httpd latest 02ef73cf1bc0 3 weeks ago 194.4 MB
 ubuntu 15.10 4e3b13c8a266 4 weeks ago 136.3 MB
-hello\-world latest 690ed74de00f 6 months ago 960 B
+hello-world latest 690ed74de00f 6 months ago 960 B
 ```
 
 各个选项说明:
 
-- **REPOSITORY：**表示镜像的仓库源
-- **TAG：**镜像的标签
-- **IMAGE ID：**镜像 ID（唯一）
-- **CREATED：**镜像创建时间
-- **SIZE：**镜像大小
+- REPOSITORY：表示镜像的仓库源
+- TAG：镜像的标签
+- IMAGE ID：镜像 ID（唯一）
+- CREATED：镜像创建时间
+- SIZE：镜像大小
 
 ## 3-2. 查找镜像
 
@@ -42,9 +42,9 @@ hello\-world latest 690ed74de00f 6 months ago 960 B
 
 各个选项说明:
 
-- **NAME:**镜像仓库源的名称
-- **DESCRIPTION:**镜像的描述
-- **OFFICIAL:**是否 docker 官方发布
+- NAME:镜像仓库源的名称
+- DESCRIPTION:镜像的描述
+- OFFICIAL:是否 docker 官方发布
 
 ## 3-3. 拖取镜像
 

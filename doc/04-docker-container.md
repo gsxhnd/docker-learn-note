@@ -2,7 +2,7 @@
 
 简单的说，容器是独立运行的一个或一组应用，以及它们的运行态环境。 如果把镜像看成面向对象中的 类 的话，那么容器就是 类 的实例化 对象。
 
-## 启动容器
+## 4.1. 启动容器
 
 启动容器有两种方式，一种是基于镜像新建一个容器并启动， 另外一个是将在终止状态（stopped）的容器重新启动。
 
@@ -43,27 +43,27 @@ root@543a324ea841:/#
 
 退出容器，可以使用 exit 命令。
 
-```text
+```shell
 root@543a324ea841:/# exit
 exit
 ```
 
-### 守护状态运行
+### 4.1.1. 守护状态运行
 
 更多的时候，需要让 Docker 容器在后台以守护态（Daemonized）形式运行。
 
-```text
+```shell
 $ sudo docker run -d ubuntu /bin/echo "hello docker"
 839fee657bfe893b9b2c76aebbb2b620efefc091a04fd90b1c5eda82b9e36730
 ```
 
 - -d 表示容器以守护态（Daemonized）形式运行。
 
-### 查看容器
+### 4.1.2. 查看容器
 
 通过 `docker ps` 命令查看当前运行的所有容器。
 
-```text
+```shell
 $ sudo docker ps -a
 
 CONTAINER ID    IMAGE         COMMAND                  CREATED         STATUS                         PORTS    NAMES
@@ -73,11 +73,11 @@ CONTAINER ID    IMAGE         COMMAND                  CREATED         STATUS   
 9797d4bcb1f6    ubuntu        "/bin/echo 'hello wo…" 9 minutes ago Exited (0) 9 minutes ago cranky_keller 4d2cd63632c7 hello-world "/hello" 20 minutes ago Exited (0) 20 minutes ago keen_stallman
 ```
 
-### 获取容器的输出信息
+### 4.1.3. 获取容器的输出信息
 
 通过`docker logs`命令。
 
-```text
+```shell
 $ sudo docker logs musing_golick
 hello docker
 
@@ -87,41 +87,42 @@ hello docker
 
 `musing_golick` 为容器的 NAMES , `839fee657bfe` 为容器的 ID。通过 `docker ps -a` 命令查看。
 
-### 停止容器
+### 4.1.4 停止容器
 
 可以使用`docker stop`来终止一个运行中的容器。
 
-```text
+```shell
 docker stop 0fc49a885fc2
 ```
 
-### 重动容器
+### 4.1.5. 重动容器
 
 可以使用`docker start` 重动容器。
 
-```text
+```shell
 docker start 0fc49a885fc2
 ```
 
-### 删除容器
+### 4.1.6. 删除容器
 
 通过 `docker rm` 删除指定的容器。
 
-```text
+```shell
 docker rm 0fc49a885fc2
 ```
 
 0fc49a885fc2 为容器有 ID 。
 
-## 运行一个 web 应用
+## 4.2. 运行一个 web 应用
 
 使用 docker 构建一个 web 应用程序。
 
 我们将在 docker 容器中运行一个 Python Flask 应用来运行一个 web 应用。
 
-runoob@runoob:~\# docker pull training/webapp \# 载入镜像 runoob@runoob:~\# docker run -d -P training/webapp python app.py
-
-![](https://image.cubox.pro/article/2021053116294845757/50094.jpg)
+```shell
+$ docker pull training/webapp # 载入镜像
+docker run -d -P training/webapp python app.py
+```
 
 参数说明:
 
@@ -132,7 +133,11 @@ runoob@runoob:~\# docker pull training/webapp \# 载入镜像 runoob@runoob:~\# 
 
 使用 docker ps 来查看我们正在运行的容器：
 
-$ docker ps CONTAINER ID IMAGE COMMAND ... PORTS d3d5e39ed9d3 training/webapp "python app.py" ... 0.0.0.0:32769-&gt;5000/tcp
+```shell
+$ docker ps
+CONTAINER ID IMAGE COMMAND ... PORTS
+d3d5e39ed9d3 training/webapp "python app.py" ... 0.0.0.0:32769-&gt;5000/tcp
+```
 
 这里多了端口信息。
 
@@ -142,7 +147,10 @@ Docker 开放了 5000 端口（默认 Python Flask 端口）映射到主机端�
 
 这时我们可以通过浏览器访问 WEB 应用
 
-![](https://image.cubox.pro/article/2021053116294856804/76226.jpg)
+```shell
+$ curl http://127.0.0.1:32769
+"Hello world"
+```
 
 我们也可以通过 -p 参数来设置不一样的端口：
 
@@ -150,8 +158,11 @@ Docker 开放了 5000 端口（默认 Python Flask 端口）映射到主机端�
 
 **docker ps**查看正在运行的容器
 
-```text
-$ docker ps CONTAINER ID IMAGE PORTS NAMES bf08b7f2cd89 training/webapp ... 0.0.0.0:5000\->5000/tcp wizardly_chandrasekhar d3d5e39ed9d3 training/webapp ... 0.0.0.0:32769\->5000/tcp xenodochial_hoov
+```shell
+$ docker ps
+CONTAINER ID IMAGE PORTS NAMES
+bf08b7f2cd89 training/webapp ... 0.0.0.0:5000->5000/tcp wizardly_chandrasekhar
+d3d5e39ed9d3 training/webapp ... 0.0.0.0:32769->5000/tcp xenodochial_hoov
 ```
 
 容器内部的 5000 端口映射到我们本地主机的 5000 端口上。
@@ -172,7 +183,7 @@ $ docker ps CONTAINER ID IMAGE PORTS NAMES bf08b7f2cd89 training/webapp ... 0.0.
 
 docker logs \[ID 或者名字\] 可以查看容器内部的标准输出。
 
-```text
+```shell
 $ docker logs -f bf08b7f2cd89
 * Running on http://0.0.0.0:5000(Press CTRL+C to quit)
 192.168.239.1 - - [09/May/2016 16:30:37] "GET / HTTP/1.1" 200 -
@@ -187,7 +198,7 @@ $ docker logs -f bf08b7f2cd89
 
 我们还可以使用 docker top 来查看容器内部运行的进程
 
-```text
+```shell
 $ docker top wizardly_chandrasekhar
 UID PID PPID ... TIME CMD
 root 23245 23228 ... 00:00:00 python app.py
@@ -197,7 +208,7 @@ root 23245 23228 ... 00:00:00 python app.py
 
 使用 **docker inspect** 来查看 Docker 的底层信息。它会返回一个 JSON 文件记录着 Docker 容器的配置和状态信息。
 
-```text
+```shell
 $ docker inspect wizardly_chandrasekhar
 [ { "Id": "bf08b7f2cd897b5964943134aa6d373e355c286db9b9885b1f60b6e8f82b2b85", "Created": "2018-09-17T01:41:26.174228707Z", "Path": "python", "Args": \[ "app.py" \], "State": { "Status": "running", "Running": true, "Paused": false, "Restarting": false, "OOMKilled": false, "Dead": false, "Pid": 23245, "ExitCode": 0, "Error": "", "StartedAt": "2018-09-17T01:41:26.494185806Z", "FinishedAt": "0001-01-01T00:00:00Z" }, ......
 ```
@@ -214,7 +225,7 @@ $ docker inspect wizardly_chandrasekhar
 
 `docker ps -l` 查询最后一次创建的容器：
 
-```text
+```shell
 $ docker ps -l
 CONTAINER ID IMAGE PORTS NAMES
 bf08b7f2cd89 training/webapp ... 0.0.0.0:5000->5000/tcp wizardly_chandrasekhar
@@ -226,11 +237,15 @@ bf08b7f2cd89 training/webapp ... 0.0.0.0:5000->5000/tcp wizardly_chandrasekhar
 
 我们可以使用 docker rm 命令来删除不需要的容器
 
-```text
+```shell
 $ docker rm wizardly_chandrasekhar
 wizardly_chandrasekhar
 ```
 
 删除容器时，容器必须是停止状态，否则会报如下错误
 
-$ docker rm wizardly_chandrasekhar Error response from daemon: You cannot remove a running container bf08b7f2cd897b5964943134aa6d373e355c286db9b9885b1f60b6e8f82b2b85. Stop the container before attempting removal or force remove
+```shell
+$ docker rm wizardly_chandrasekhar
+Error response from daemon: You cannot remove a running container bf08b7f2cd897b5964943134aa6d373e355c286db9b9885b1f60b6e8f82b2b85.
+Stop the container before attempting removal or force remove
+```
