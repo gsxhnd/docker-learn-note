@@ -1,10 +1,8 @@
 # 5. Docker仓库
 
-## 6. Dcoker 仓库
-
 一个容易混淆的概念是注册服务器（Registry）。 实际上注册服务器是管理仓库的具体服务器，每个服务器上可以有多个仓库，而每个仓库下面有多个镜像。从这方面来说， 仓库可以被认为是一个具体的项目或目录。例如对于仓库地址`registry.hub.docker.com/ubuntu` 来说，`registry.hub.docker.com`是注册服务器地址，`ubuntu`是仓库名。大部分时候，并不需要严格区分这两者的概念。
 
-### 6.1. Docker Hub
+### 5.1. Docker Hub
 
 目前 Docker 官方维护了一个公共仓库 Docker Hub：[https://hub.docker.com](https://hub.docker.com/)
 
@@ -22,7 +20,7 @@ frolvlad/alpine-glibc                  Alpine Docker image with glibc (~12MB)   
 alpine/git                             A  simple git container running in alpine li…   191                  [OK]
 ```
 
-### 6.2. 使用国内镜像
+### 5.2. 使用国内镜像
 
 参考地址：[https://www.docker-cn.com/registry-mirror](https://www.docker-cn.com/registry-mirror)
 
@@ -53,7 +51,7 @@ docker.io/library/alpine:3.13.6
 $ systemctl restart docker
 ```
 
-### 5.2. Docker 私有仓库搭建
+### 5.3. Docker 私有仓库搭建
 
 **环境准备**
 
