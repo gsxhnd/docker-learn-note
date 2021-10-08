@@ -1,4 +1,4 @@
-# 4. Dcoker 容器
+# 4. 容器
 
 简单的说，容器是独立运行的一个或一组应用，以及它们的运行态环境。 如果把镜像看成面向对象中的 类 的话，那么容器就是 类 的实例化 对象。
 
@@ -26,20 +26,20 @@ $ docker run -t -i ubuntu /bin/bash
 root@543a324ea841:/#
 ```
 
-- -t 选项让 Docker 分配一个伪终端（pseudo-tty）并绑定到容器的标准输入上。
-- -i 则让容器的标准输入保持打开。
+* -t 选项让 Docker 分配一个伪终端（pseudo-tty）并绑定到容器的标准输入上。
+* -i 则让容器的标准输入保持打开。
 
 此时，你已经在 ubuntu 容器中了。这是一个独立的 ubuntu 系统。通过 root@543a324ea841 标识可以看出。
 
 当利用`docker run` 来创建容器时，Docker 在后台运行的标准操作包括：
 
-- 检查本地是否存在指定的镜像，不存在就从公有仓库下载
-- 利用镜像创建并启动一个容器
-- 分配一个文件系统，并在只读的镜像层外面挂载一层可读写层
-- 从宿主主机配置的网桥接口中桥接一个虚拟接口到容器中去
-- 从地址池配置一个 IP 地址给容器
-- 执行用户指定的应用程序
-- 执行完毕后容器被终止
+* 检查本地是否存在指定的镜像，不存在就从公有仓库下载
+* 利用镜像创建并启动一个容器
+* 分配一个文件系统，并在只读的镜像层外面挂载一层可读写层
+* 从宿主主机配置的网桥接口中桥接一个虚拟接口到容器中去
+* 从地址池配置一个 IP 地址给容器
+* 执行用户指定的应用程序
+* 执行完毕后容器被终止
 
 退出容器，可以使用 exit 命令。
 
@@ -57,7 +57,7 @@ $ sudo docker run -d ubuntu /bin/echo "hello docker"
 839fee657bfe893b9b2c76aebbb2b620efefc091a04fd90b1c5eda82b9e36730
 ```
 
-- -d 表示容器以守护态（Daemonized）形式运行。
+* -d 表示容器以守护态（Daemonized）形式运行。
 
 ### 4.1.2. 查看容器
 
@@ -126,8 +126,8 @@ docker run -d -P training/webapp python app.py
 
 参数说明:
 
-- `-d`:让容器在后台运行。
-- `-P`:将容器内部使用的网络端口映射到我们使用的主机上。
+* `-d`:让容器在后台运行。
+* `-P`:将容器内部使用的网络端口映射到我们使用的主机上。
 
 ### 查看 WEB 应用容器
 
@@ -171,9 +171,9 @@ d3d5e39ed9d3 training/webapp ... 0.0.0.0:32769->5000/tcp xenodochial_hoov
 
 通过 **docker ps** 命令可以查看到容器的端口映射，**docker** 还提供了另一个快捷方式 **docker port**，使用 **docker port** 可以查看指定 （ID 或者名字）容器的某个确定端口映射到宿主机的端口号。
 
-上面我们创建的 web 应用容器 ID 为 **bf08b7f2cd89** 名字为 **wizardly_chandrasekhar**。
+上面我们创建的 web 应用容器 ID 为 **bf08b7f2cd89** 名字为 **wizardly\_chandrasekhar**。
 
-我可以使用 docker port bf08b7f2cd89 或 docker port wizardly_chandrasekhar 来查看容器端口的映射情况。
+我可以使用 docker port bf08b7f2cd89 或 docker port wizardly\_chandrasekhar 来查看容器端口的映射情况。
 
 `$ docker port bf08b7f2cd89 5000/tcp -> 0.0.0.0:5000`
 
@@ -249,3 +249,4 @@ $ docker rm wizardly_chandrasekhar
 Error response from daemon: You cannot remove a running container bf08b7f2cd897b5964943134aa6d373e355c286db9b9885b1f60b6e8f82b2b85.
 Stop the container before attempting removal or force remove
 ```
+
