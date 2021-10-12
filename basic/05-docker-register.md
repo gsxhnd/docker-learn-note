@@ -60,4 +60,3 @@ $ systemctl restart docker
 $ curl -XGET http://registry:5000/v2/_catalog
 $ curl -XGET http://registry:5000/v2/image_name/tags/list
 ```
-
