@@ -16,3 +16,4 @@
   * [11. Docker 网络模式](advanced/11.-docker-wang-luo-mo-shi.md)
   * [12. Docker 数据管理](advanced/12.-docker-shu-ju-guan-li.md)
   * [13. Docker daemon.json文件](advanced/13-docker-daemon-json.md)
+  * [14. Docker 修改容器配置](advanced/chapter-14.md)
